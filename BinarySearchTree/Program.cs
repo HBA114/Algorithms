@@ -1,6 +1,6 @@
 ﻿using BinarySearchTree;
 
-Tree tree = new Tree();
+BinaryTree tree = new BinaryTree();
 
 tree.Add(100);
 tree.Add(95);

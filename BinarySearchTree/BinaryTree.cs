@@ -1,6 +1,8 @@
+using Algorithms.Common;
+
 namespace BinarySearchTree;
 
-public class Tree
+public class BinaryTree
 {
     private Node? _root;
 
