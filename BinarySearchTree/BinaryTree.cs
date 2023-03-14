@@ -1,21 +1,25 @@
 using Algorithms.Common;
+using BreadthFirstSearch;
+using DepthFirstSearch;
 
 namespace BinarySearchTree;
 
-public class BinaryTree
+public class BinaryTree : Tree
 {
-    private Node? _root;
+    public BinaryTree(Node root) : base(root)
+    {
+    }
 
     public bool Add(int id, Node? node = null)
     {
-        if (_root is null)
+        if (root is null)
         {
-            _root = new Node(id);
+            root = new Node(id);
             return true;
         }
         else
         {
-            if (node is null) node = _root;
+            if (node is null) node = root;
             if (id <= node.Id)
             {
                 if (node.Left is not null) return Add(id, node.Left);
@@ -41,37 +45,30 @@ public class BinaryTree
 
     public void WriteAsDepthFirst()
     {
-        List<Node> order = new List<Node>();
-        Node node = _root!;
-        bool[] isEnded = new bool[2] { false, false };
+        List<Node> order = DFS.CreateDepthFirstSearchOrder(this);
 
-        while (true)
-        {
-            if (order.Any(x => x.Id == node.Id))
-            {
-                if (node.Left != null && !order.Any(x => x.Id == node.Left.Id)) node = node.Left;
-                else if (node.Right != null && !order.Any(x => x.Id == node.Right.Id)) node = node.Right;
-                else node = node.Parent!;
-            }
-            else
-                order.Add(node);
-
-            if (node == _root)
-            {
-                if (_root.Left is not null)
-                    if (order.Any(x => x.Id == _root.Left.Id))
-                        isEnded[0] = true;
-                if (_root.Right is not null)
-                    if (order.Any(x => x.Id == _root.Right.Id))
-                        isEnded[1] = true;
-
-                if (isEnded.All(x => x == true)) break;
-            }
-        }
-
+        Console.WriteLine($"Depth First Search Order: ");
         foreach (var item in order)
         {
-            Console.Write($"{item.Id}, ");
+            if (item != order.Last())
+                Console.Write($"{item.Id}, ");
+            else
+                Console.Write($"{item.Id}");
+        }
+        Console.WriteLine($"");
+    }
+
+    public void WriteAsBreadthFirst()
+    {
+        List<Node> order = BFS.CreateBreadthFirstSearchOrder(this);
+
+        Console.WriteLine($"Breadth First Search Order: ");
+        foreach (var item in order)
+        {
+            if (item != order.Last())
+                Console.Write($"{item.Id}, ");
+            else
+                Console.Write($"{item.Id}");
         }
         Console.WriteLine($"");
     }

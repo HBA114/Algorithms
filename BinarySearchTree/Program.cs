@@ -1,8 +1,9 @@
-﻿using BinarySearchTree;
+﻿using Algorithms.Common;
+using BinarySearchTree;
 
-BinaryTree tree = new BinaryTree();
+Node rootNode = new Node(100);
+BinaryTree tree = new BinaryTree(root: rootNode);
 
-tree.Add(100);
 tree.Add(95);
 tree.Add(105);
 tree.Add(107);
@@ -14,3 +15,4 @@ tree.Add(34);
 tree.Add(47);
 
 tree.WriteAsDepthFirst();
+tree.WriteAsBreadthFirst();
