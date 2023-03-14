@@ -20,7 +20,7 @@ public class BinaryTree : Tree
         else
         {
             if (node is null) node = root;
-            if (id <= node.Id)
+            if (id < node.Id)
             {
                 if (node.Left is not null) return Add(id, node.Left);
                 else
@@ -29,7 +29,7 @@ public class BinaryTree : Tree
                     return true;
                 }
             }
-            if (id > node.Id)
+            else if (id > node.Id)
             {
                 if (node.Right is not null) return Add(id, node.Right);
                 else
@@ -38,9 +38,12 @@ public class BinaryTree : Tree
                     return true;
                 }
             }
-        }
+            else    //! if id equals another node's id do not add
+            {
+                return false;
+            }
 
-        return false;
+        }
     }
 
     public void WriteAsDepthFirst()
