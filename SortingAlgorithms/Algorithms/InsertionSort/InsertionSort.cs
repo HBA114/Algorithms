@@ -4,11 +4,11 @@ public static class InsertionSort
 {
     public static List<int> Sort(List<int> unsortedList)
     {
-        return new List<int>();
+        throw new NotImplementedException();
     }
     
     public static List<int> SortByDescending(List<int> unsortedList)
     {
-        return new List<int>();
+        throw new NotImplementedException();
     }
 }
