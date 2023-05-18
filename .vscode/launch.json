@@ -10,9 +10,9 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/BinarySearchTree/bin/Debug/net6.0/BinarySearchTree.dll",
+            "program": "${workspaceFolder}/SortingAlgorithms/bin/Debug/net7.0/SortingAlgorithms.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/BinarySearchTree",
+            "cwd": "${workspaceFolder}/SortingAlgorithms",
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
             "console": "internalConsole",
             "stopAtEntry": false
